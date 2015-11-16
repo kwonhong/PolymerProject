@@ -1,0 +1,30 @@
+
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+<link href="../../bower_components/google-youtube/google-youtube.html" rel="import">
+
+<!-- Actual Module Implementation -->
+<dom-module id="blog-video">
+<style type="text/css">
+  .blogVideo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+</style>
+<template>
+  <div class="blogVideo z-depth-2">
+    <google-youtube fluid=true video-id='XGdbaEDVWp0'></google-youtube>
+  </div>
+</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "blog-video", // Need this to register this element
+    
+    properties: {
+      vidoId: String
+    }
+  });
+</script>

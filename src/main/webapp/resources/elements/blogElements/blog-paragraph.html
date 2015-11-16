@@ -1,0 +1,37 @@
+
+<!-- List of dependencies! -->
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+
+<!-- Actual Module Implementation -->
+<dom-module id="blog-paragraph">
+<style type="text/css">
+
+  @font-face {
+    font-family: RobotoRegular;
+    src: url(../../bower_components/Materialize/font/roboto/Roboto-Regular.woff);
+  }
+  @font-face {
+    font-family: RobotoBold;
+    src: url(../../bower_components/Materialize/font/roboto/Roboto-Medium.woff);
+  }
+
+  p {
+    font-family: RobotoBold;
+  }
+
+</style>
+  <template>
+      <p class="blue-grey-text lighten-3">{{paragraphText}}</p>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "blog-paragraph", // Need this to register this element
+    
+    properties: {
+      paragraphText: String
+    }
+  });
+</script>

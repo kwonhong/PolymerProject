@@ -1,0 +1,28 @@
+CREATE DATABASE testingDatabase;
+
+CREATE TABLE testingDatabase.blog (
+	id INT NOT NULL auto_increment,
+	title TEXT NOT NULL,
+	author TEXT NOT NULL,
+	contents TEXT NOT NULL,
+	creation_date DATE NOT NULL
+	PRIMARY KEY (id)
+);
+
+INSERT INTO testingDatabase.blog (title, author, contents, creation_date)
+VALUES ('Sample Title','Tom B. Erichsen','#header this is header ## #para this is paragraph ##', CURTIME());
+
+INSERT INTO testingDatabase.blog (title, author, contents, creation_date)
+VALUES (
+'Introduction to WordPress Plugin Developments', 'Unknown',
+'#para In this course, we are going to take a look at everything that goes into building a WordPress plugin. We will start from the ground up by setting up a web server, a database server and PHP. Next, we will install WordPress, and then we will look into some of the sample plugins that are bundled with the software. ##
+#para From there, we will move on to examining the event-driven design pattern and how it factors into creating a WordPress plugin, and then we will look at the differences between WordPress actions and WordPress filters. ##
+#video ##
+#header Introduction ##
+#para Currying is a feature found in most modern programming languages. It translates a single function with multiple arguments into a series of functions each with one argument. In essence, this enables for storing functions in variables and creating functions that return functions. ##
+#header 1. Function Currying with Classes ##
+#para Before defining our own custom functions, I am first going to show you a simple example of currying in Swift using classes. ##
+#code ##',
+CURTIME()
+);
+

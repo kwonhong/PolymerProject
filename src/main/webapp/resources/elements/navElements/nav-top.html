@@ -1,0 +1,33 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+
+<!-- Actual Module Implementation -->
+<dom-module id="nav-top">
+<template>
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">One</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  <nav>
+    <div class="red darken-1 nav-wrapper">
+      <ul class="right hide-on-med-and-down">
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="dropdown1">Tutorials<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </nav>
+</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "nav-top", // Need this to register this element
+    
+    properties: {
+      headerText: String
+    }
+  });
+</script>

@@ -1,0 +1,47 @@
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<!-- List of dependencies! -->
+	<script src="resources/bower_components/webcomponentsjs/webcomponents.js"></script>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+
+	<link href="resources/bower_components/Materialize/sass/materialize.css" rel="stylesheet">
+
+
+	<link href="resources/elements/navElements/nav-top.html" rel="import">
+	<link href="resources/elements/blogElements/blog-paragraph.html" rel="import">
+	<link href="resources/elements/blogElements/blog-title.html" rel="import">
+	<link href="resources/elements/blogElements/blog-video.html" rel="import">
+	<link href="resources/elements/blogElements/blog-header.html" rel="import">
+	<link href="resources/elements/blogElements/blog-code.html" rel="import">
+</head>
+<body>
+	<nav-top></nav-top>
+
+	<div class="container">
+	<div class="row">
+	<div class="col s8">
+		<blog-title title-text="Introduction to WordPress Plugin Developments"></blog-title>
+		<blog-paragraph paragraph-text="In this course, we're going to take a look at everything that goes into building a WordPress plugin. We'll start from the ground up by setting up a web server, a database server and PHP. Next, we'll install WordPress, and then we'll look into some of the sample plugins that are bundled with the software."></blog-paragraph>
+		<blog-paragraph paragraph-text="From there, we'll move on to examining the event-driven design pattern and how it factors into creating a WordPress plugin, and then we'll look at the differences between WordPress actions and WordPress filters."></blog-paragraph>
+		<blog-video></blog-video>
+		<blog-header header-text="Introduction"></blog-header>
+		<blog-paragraph paragraph-text="Currying is a feature found in most modern programming languages. It translates a single function with multiple arguments into a series of functions each with one argument. In essence, this enables for storing functions in variables and creating functions that return functions."></blog-paragraph>
+		<blog-header header-text="1. Function Currying with Classes"></blog-header>
+		<blog-paragraph paragraph-text="Before defining our own custom functions, I am first going to show you a simple example of currying in Swift using classes."></blog-paragraph>
+		<blog-code code-text="p { color: red }" code-type="language-css"></blog-code>
+	</div>
+	</div>
+
+</body>
+
+<script type="text/javascript">
+	$(".dropdown-button").dropdown();
+</script>
+</html>

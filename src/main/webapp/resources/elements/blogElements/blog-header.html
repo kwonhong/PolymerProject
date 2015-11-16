@@ -1,0 +1,37 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+
+<!-- Actual Module Implementation -->
+<dom-module id="blog-header">
+<style type="text/css">
+  @font-face {
+    font-family: RobotoBold;
+    src: url(../../bower_components/Materialize/font/roboto/Roboto-Medium.woff);
+  }
+
+  .headerText {
+    font-family: RobotoBold;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+
+</style>
+<template>
+  <div class="headerText">
+    <span class="grey-text text-darken-2">{{headerText}}</span>
+  </div>
+
+</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "blog-header", // Need this to register this element
+    
+    properties: {
+      headerText: String
+    }
+  });
+</script>

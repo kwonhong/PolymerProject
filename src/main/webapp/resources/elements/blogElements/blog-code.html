@@ -1,0 +1,28 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+
+<!-- Prism Library -->
+<link href="../../bower_components/prism/prism.css" rel="stylesheet">
+<script src="../../bower_components/prism/prism.js"></script>
+
+<!-- Actual Module Implementation -->
+<dom-module id="blog-code">
+<template>
+  <div class="z-depth-2">
+    <pre>
+      <code class$="{{codeType}}">{{codeText}}</code>
+    </pre>
+  </div>
+</template>
+</dom-module>
+<script>
+  // element registration
+  Polymer({
+    is: "blog-code", // Need this to register this element
+    
+    properties: {
+      codeText: String,
+      codeType: String
+    }
+  });
+</script>
+
