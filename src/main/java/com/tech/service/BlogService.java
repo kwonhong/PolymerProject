@@ -14,6 +14,8 @@ public interface BlogService {
 
     List<Blog> findAllBlog();
 
+    List<Blog> findAllBlogWithQuery(String query);
+
     void deleteBlogByID(int id);
 
     Blog findBlogByID(int id);

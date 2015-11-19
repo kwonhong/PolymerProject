@@ -15,4 +15,7 @@ public final class UrlHelper {
     public static final String getBlogUrlPath() {
         return RequestMappingDefinitions.BLOG_URL_PATH;
     }
+    public static final String getSearchUrlPath() {
+        return RequestMappingDefinitions.SEARCH_URL_PATH;
+    }
 }

@@ -1,28 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-  <meta charset="utf-8">
-
-  <!-- List of dependencies! -->
-  <script src="resources/bower_components/webcomponentsjs/webcomponents.js"></script>
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-
-  <link href="resources/bower_components/Materialize/sass/materialize.css" rel="stylesheet">
-
-
-  <link href="resources/elements/navElements/nav-top.html" rel="import">
-  <link href="resources/elements/blogElements/blog-paragraph.html" rel="import">
-  <link href="resources/elements/blogElements/blog-title.html" rel="import">
-  <link href="resources/elements/blogElements/blog-video.html" rel="import">
-  <link href="resources/elements/blogElements/blog-header.html" rel="import">
-  <link href="resources/elements/blogElements/blog-code.html" rel="import">
+  <%@ include file="include/headerInclude.jsp" %>
 </head>
 <body>
+
 <nav-top></nav-top>
 
 <div class="container">

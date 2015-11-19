@@ -11,6 +11,7 @@ public interface BlogDao {
 
     void saveBlog(Blog blog);
     List<Blog> findAllBlog();
+    List<Blog> findAllBlogWithQuery(String query);
     void deleteBlog(int blogID);
     Blog findBlogByID(int blogID);
     void updateBlog(Blog blog);

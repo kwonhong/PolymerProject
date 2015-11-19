@@ -49,6 +49,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public List<Blog> findAllBlogWithQuery(String query) {
+        return dao.findAllBlogWithQuery(query);
+    }
+
+    @Override
     public void updateBlog(Blog blog){
         dao.updateBlog(blog);
     }

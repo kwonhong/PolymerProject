@@ -28,6 +28,12 @@ public class BlogDaoImpl extends AbstractDao implements BlogDao{
     }
 
     @Override
+    public List<Blog> findAllBlogWithQuery(String query) {
+        String sqlQuery = "SELECT * from blog where blog.title LIKE \'%" + query + "%\'";
+        return getSession().createSQLQuery(sqlQuery).addEntity(Blog.class).list();
+    }
+
+    @Override
     public void deleteBlog(int blogID) {
         Query query = getSession().createSQLQuery("delete from Blog where id = :id");
         query.setInteger("id", blogID);

@@ -35,4 +35,15 @@ public class Blog implements Comparable<Blog>{
     public int compareTo(Blog o) {
         return this.createdDate.compareTo(o.getCreatedDate());
     }
+
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", contents='" + contents + '\'' +
+                ", createdDate=" + createdDate +
+                '}';
+    }
 }

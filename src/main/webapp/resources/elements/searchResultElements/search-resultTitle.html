@@ -1,0 +1,50 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+
+<!-- Actual Module Implementation -->
+<dom-module id="search-resultTitle">
+
+    <style type="text/css">
+        @font-face {
+            font-family: RobotoBold;
+            src: url(../../bower_components/Materialize/font/roboto/Roboto-Medium.woff);
+        }
+
+        @font-face {
+            font-family: RobotoRegular;
+            src: url(../../bower_components/Materialize/font/roboto/Roboto-Regular.woff);
+        }
+
+        .resultTitle {
+            font-family: RobotoBold;
+            font-size: larger;
+            margin-bottom: 5px;
+            color: black;
+            line-height: 1.2;
+        }
+
+        .resultCount {
+            color: grey;
+            font-size: smaller;
+            font-family: RobotoRegular;
+        }
+
+    </style>
+    <template>
+
+        <h1 class="resultTitle">Empty Result
+            <small class="resultCount">10,000 Results</small>
+        </h1>
+    </template>
+</dom-module>
+<script>
+    // element registration
+    Polymer({
+        is: "search-resultTitle", // Need this to register this element
+
+        properties: {
+            codeText: String,
+            codeType: String
+        }
+    });
+</script>
+
