@@ -19,6 +19,12 @@ public class Blog implements Comparable<Blog>{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name ="AUTHOR_ID", nullable = false)
+    private String authorId;
+
+    @Column(name ="CATEGORY_ID", nullable = false)
+    private String categoryId;
+
     @Column(name = "TITLE", nullable = false)
     private String title;
 
@@ -28,22 +34,20 @@ public class Blog implements Comparable<Blog>{
     @Column(name = "CONTENTS", nullable = true)
     private String contents;
 
+    @Column(name = "VIEWS", nullable = true)
+    private int views;
+
+    @Column(name = "LIKES", nullable = true)
+    private int likes;
+
     @Column(name = "CREATION_DATE", nullable = false)
     private Date createdDate;
+
+    @Column(name = "UPDATED_DATE", nullable = false)
+    private Date updatedDate;
 
     @Override
     public int compareTo(Blog o) {
         return this.createdDate.compareTo(o.getCreatedDate());
-    }
-
-    @Override
-    public String toString() {
-        return "Blog{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", contents='" + contents + '\'' +
-                ", createdDate=" + createdDate +
-                '}';
     }
 }

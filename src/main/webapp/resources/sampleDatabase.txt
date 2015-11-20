@@ -2,12 +2,48 @@ CREATE DATABASE testingDatabase;
 
 CREATE TABLE testingDatabase.blog (
 	id INT NOT NULL auto_increment,
+	author_id INT NOT NULL,
+	category_id INT NOT NULL,
 	title TEXT NOT NULL,
-	author TEXT NOT NULL,
 	contents TEXT NOT NULL,
-	creation_date DATE NOT NULL
+	views INT NOT NULL,
+	likes INT NOT NULL,
+	creation_date DATE NOT NULL,
+	updated_date DATE NOT NULL,
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE testingDatabase.author (
+	id INT NOT NULL auto_increment,
+	first_name TEXT NOT NULL,
+	last_name TEXT NOT NULL,
+	display_name TEXT NOT NULL,
+	email TEXT NOT NULL,
+	creation_date DATE NOT NULL,
+	updated_date DATE NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE testingDatabase.category (
+	id INT NOT NULL auto_increment,
+	name TEXT NOT NULL,
+	display_name TEXT NOT NULL,
+	enabled BOOL,
+	creation_date DATE NOT NULL,
+	updated_date DATE NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE testingDatabase.tag (
+	id INT NOT NULL auto_increment,
+	post_id INT NOT NULL,
+	name TEXT NOT NULL,
+	display_name TEXT NOT NULL,
+	creation_date DATE NOT NULL,
+	updated_date DATE NOT NULL,
+	PRIMARY KEY (id)
+);
+
 
 INSERT INTO testingDatabase.blog (title, author, contents, creation_date)
 VALUES ('Sample Title','Tom B. Erichsen','#header this is header ## #para this is paragraph ##', CURTIME());
