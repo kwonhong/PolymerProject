@@ -17,7 +17,6 @@ public class BlogDaoImpl extends AbstractDao implements BlogDao{
 
     @Override
     public void saveBlog(Blog blog) {
-//        getSession().save(blog);
         persist(blog);
     }
 

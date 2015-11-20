@@ -16,5 +16,6 @@
 <link href="/resources/elements/blogElements/blog-video.html" rel="import">
 <link href="/resources/elements/blogElements/blog-header.html" rel="import">
 <link href="/resources/elements/blogElements/blog-code.html" rel="import">
+<link href="/resources/elements/blogElements/blog-author.html" rel="import">
 <link href="/resources/elements/searchResultElements/search-resultItem.html" rel="import">
 <link href="/resources/elements/searchResultElements/search-resultTitle.html" rel="import">

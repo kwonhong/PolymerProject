@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name="BLOG")
+@Table(name="blog")
 public class Blog implements Comparable<Blog>{
 
     @Id
@@ -20,16 +20,13 @@ public class Blog implements Comparable<Blog>{
     private int id;
 
     @Column(name ="AUTHOR_ID", nullable = false)
-    private String authorId;
+    private int authorId;
 
     @Column(name ="CATEGORY_ID", nullable = false)
-    private String categoryId;
+    private int categoryId;
 
     @Column(name = "TITLE", nullable = false)
     private String title;
-
-    @Column(name = "AUTHOR", nullable = false)
-    private String author;
 
     @Column(name = "CONTENTS", nullable = true)
     private String contents;
