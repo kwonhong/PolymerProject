@@ -1,0 +1,64 @@
+
+<!-- List of dependencies! -->
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+
+<!-- Actual Module Implementation -->
+<dom-module id="blog-button">
+
+
+
+<template>
+<style>
+.btn{
+	background-color:blue;
+}
+.btn:hover{
+	background-color:purple;
+}
+
+:host{
+	opacity:0.4;
+	transition: opacity 420ms ease-in-out;
+}
+:host(:hover){
+opactiy:1;
+}
+
+</style>
+	<a id="buttonss" class="waves-effect waves-light btn">{{buttonText}}</a>
+</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "blog-button", // Need this to register this element
+    
+    properties: {
+    	buttonText:{
+    		type:String,
+    		value: 'test'
+    	},
+    	buttonColor:String,
+    },
+
+
+  });
+
+</script>
+
+<script>
+/*
+
+window.addEventListener("load", pageFullyLoaded, false);
+function pageFullyLoaded(e) {
+  console.log("Testing3");
+  var button = document.getElementById('buttonss');
+	button.style.background-color='#2bbbad';
+
+    });
+
+
+};
+*/
+</script>

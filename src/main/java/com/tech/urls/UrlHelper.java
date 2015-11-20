@@ -18,4 +18,7 @@ public final class UrlHelper {
     public static final String getSearchUrlPath() {
         return RequestMappingDefinitions.SEARCH_URL_PATH;
     }
+    public static final String getIndexUrlPath() {
+        return RequestMappingDefinitions.INDEX_URL_PATH;
+    }
 }
