@@ -16,6 +16,13 @@
 <link href="/resources/elements/blogElements/blog-video.html" rel="import">
 <link href="/resources/elements/blogElements/blog-header.html" rel="import">
 <link href="/resources/elements/blogElements/blog-code.html" rel="import">
-<link href="/resources/elements/blogElements/blog-author.html" rel="import">
 <link href="/resources/elements/searchResultElements/search-resultItem.html" rel="import">
 <link href="/resources/elements/searchResultElements/search-resultTitle.html" rel="import">
+<link href="/resources/elements/searchElements/blog-button.html" rel="import">
+<link href="/resources/elements/searchElements/image-card.html" rel="import">
+<link href="/resources/elements/searchElements/search-bar.html" rel="import">
+<link href="/resources/elements/searchElements/search-pagination.html" rel="import">
+<link href="/resources/elements/searchElements/logo-image.html" rel="import">
+
+<link rel="import" href="/resources/bower_components/paper-input/paper-input.html">
+<link rel="import" href="/resources/bower_components/paper-card/paper-card.html">
