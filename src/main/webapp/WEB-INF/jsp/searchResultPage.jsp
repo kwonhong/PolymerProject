@@ -19,11 +19,19 @@
 
     <!-- Projects Row -->
     <div class="row">
-        <c:forEach var="blog" items="${blogs}">
-            <div class="col s4">
-                <search-resultItem blog-id="${blog.id}" blog-title="${blog.title}" blog-category="Java Code"></search-resultItem>
-            </div>
-        </c:forEach>
+        <div class="col-lg-9">
+            <c:forEach var="blog" items="${blogs}">
+                <div class="col-lg-4">
+                    <search-resultItem blog-id="${blog.id}" blog-title="${blog.title}" blog-category="Java Code"></search-resultItem>
+                </div>
+            </c:forEach>
+        </div>
+
+        <div class="col-lg-3">
+            <blog-related></blog-related>
+        </div>
+
+
     </div>
 
 </div>

@@ -5,14 +5,17 @@
 <!-- Actual Module Implementation -->
 <dom-module id="blog-video">
 <style type="text/css">
+
   .blogVideo {
     margin-top: 20px;
     margin-bottom: 20px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
   }
-
 </style>
 <template>
-  <div class="blogVideo z-depth-2">
+  <div class="blogVideo">
     <google-youtube fluid=true video-id='XGdbaEDVWp0'></google-youtube>
   </div>
 </template>

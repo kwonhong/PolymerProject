@@ -9,7 +9,8 @@
   .underLine {
     width: 90%;
     height: 5px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    background-color: #ff526f;
   }
 
   @font-face {
@@ -24,13 +25,10 @@
 
   .titleText {
     font-family: RobotoBold;
-    margin-bottom: 5px;
   }
 
   .date {
     font-family: RobotoRegular;
-    padding-top: 0px;
-    margin-top: 0px;
   }
 
   .authorName {
@@ -40,19 +38,15 @@
     margin-right: 10px;
   }
 
-  .authorIcon {
-    margin-bottom: 0px;
-  }
-
 </style>
 <template>
     <h2 class="titleText">{{titleText}}</h2>
-    
-    <i class="Tiny material-icons">perm_identity</i>
+
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
     <span class="authorName red-text lighten-2">{{authorName}}</span>
-    <i class="Tiny material-icons">av_timer</i>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
     <span class="date grey-text lighten-1"><i>{{date}}</i></span>
-    <div class="red lighten-4 underLine">&nbsp;</div>
+    <div class="underLine">&nbsp;</div>
 </template>
 </dom-module>
 
@@ -60,7 +54,7 @@
 <script>
   Polymer({
     // Registering Event
-    is: "blog-title", 
+    is: "blog-title",
 
     // Variables
     properties: {

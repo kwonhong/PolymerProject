@@ -6,8 +6,9 @@
         .underLine {
             width: 100%;
             height: 3px;
-            margin-top: 200px;
+            margin-top: 250px;
             margin-bottom: 10px;
+            background-color: #ff526f;
         }
 
         @font-face {
@@ -18,28 +19,52 @@
         .authorName {
             font-family: RobotoBold;
             font-size: 15px;
-            color:#ad1457;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            color: #ad1457;
+            margin-top: 10px;
             margin-left: 2px;
         }
-
         .authorDescription {
             font-family: RobotoRegular;
             font-size: 12px;
             margin-top: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
+        }
+
+
+        .authorPosition {
+            font-family: RobotoRegular;
+            font-size: 12px;
+        }
+
+        a {
+            color: #ad1457;
+            font-family: RobotoRegular;
         }
 
     </style>
     <template>
-        <div class="red lighten-4 underLine">&nbsp;</div>
+        <div class="underLine">&nbsp;</div>
 
-        <small><i>About</i></small>
-        <span class="authorName">{{authorDisplayName}}</span> <br>
-        <div class="authorDescription"> I'm a youtuber/journalist/filmmaker and most importantly a positive thinker. I love making videos, taking photos and editing it all.
-            I may be a diva fashionista, but deep in my heart I'm the biggest nerd. I love elephants and reading!</div>
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object"
+                         src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEyYzA1ZDUzOCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTJjMDVkNTM4Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+                         alt="...">
+                </a>
+            </div>
+            <div class="media-body text-">
+                <h5 class="media-heading authorName">{{authorDisplayName}}</h5>
+                <p class="authorPosition"> Software Engineering Developer</p>
+            </div>
+        </div>
 
+        <blockquote class="authorDescription">
+            <p>I'm a youtuber/journalist/filmmaker and most importantly a positive thinker. I
+            love making videos, taking photos and editing it all.
+            I may be a diva fashionista, but deep in my heart I'm the biggest nerd. I love elephants and reading! </p>
+        </blockquote>
+        <a href="#" class="pull-right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> See Detail </a>
     </template>
 </dom-module>
 
@@ -50,7 +75,7 @@
         properties: {
             authorDisplayName: String
         },
-        combineString: function(firstString, secondString) {
+        combineString: function (firstString, secondString) {
             return firstString + secondString;
         }
     });

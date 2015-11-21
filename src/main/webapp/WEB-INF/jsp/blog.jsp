@@ -4,21 +4,12 @@
     <%@ include file="include/headerInclude.jsp" %>
 </head>
 <body>
-<style>
-    .container {
-        /*margin-top: 50px;*/
-        /*margin-left: 100px;*/
-        /*margin-bottom: 50px;*/
-        /*margin-right: 50px;*/
-        /*padding: 20px;*/
-    }
 
-</style>
 <nav-top></nav-top>
 
 <div class="container">
     <div class="row">
-        <div class="col s8">
+        <div class="col-lg-7">
             <blog-title title-text="${blogTitle}" author-name="${blogAuthor.displayName}" date="${blogDate}"></blog-title>
             <c:forEach var="blogComponent" items="${blogComponents}">
                 <c:choose>
@@ -52,9 +43,13 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <div class="col s3 offset-s1">
-            <blog-author author-display-name="${blogAuthor.displayName}"></blog-author>
-
+        <div class="col-lg-offset-1 col-lg-3">
+            <div class="row">
+                <blog-author author-display-name="${blogAuthor.displayName}"></blog-author>
+            </div>
+            <div class="row">
+                <blog-related></blog-related>
+            </div>
         </div>
     </div>
 </div>
