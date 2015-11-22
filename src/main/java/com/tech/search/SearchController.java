@@ -4,11 +4,14 @@ package com.tech.search;
 import com.tech.blog.Blog;
 import com.tech.service.BlogService;
 import com.tech.urls.RequestMappingDefinitions;
+import com.tech.urls.UrlHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -18,12 +21,29 @@ public class SearchController {
     @Autowired
     private BlogService blogService;
 
-    @RequestMapping(value = RequestMappingDefinitions.SEARCH_URL_PATH, method = RequestMethod.GET)
-    public String getSearchResult(ModelMap model) {
+    @Autowired
+    private UrlHelper urlHelper;
 
-        List<Blog> blogs = blogService.findAllBlogWithQuery("");
+    @RequestMapping(value = RequestMappingDefinitions.SEARCH_URL_PATH, method = RequestMethod.GET)
+    public String getSearchResult(ModelMap model,
+                                  @RequestParam("searchText") String searchText) {
+
+        List<Blog> blogs = blogService.findAllBlogWithQuery(searchText);
         model.addAttribute("blogs", blogs);
 
         return "searchResultPage";
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView indexPage() {
+        ModelAndView modelAndView = getDefaultModelAndView();
+        modelAndView.setViewName("searchPage");
+        return modelAndView;
+    }
+
+    public ModelAndView getDefaultModelAndView() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("urlHelper", urlHelper);
+        return modelAndView;
     }
 }
