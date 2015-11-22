@@ -1,0 +1,72 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+
+<!-- Actual Module Implementation -->
+<dom-module id="author-description">
+    <style type="text/css">
+        .authorName {
+            font-family: RobotoBold;
+            font-size: 18px;
+            color: #ad1457;
+            margin-top: 10px;
+            padding-left: 2px;
+        }
+
+        .authorDescription {
+            font-family: RobotoRegular;
+            font-size: 15px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .authorPosition {
+            font-family: RobotoRegular;
+            font-size: 15px;
+        }
+
+        .blue {
+            color: #004d40;
+            padding-left: 5px;
+        }
+
+        .red {
+            color: #ad1457;
+        }
+
+    </style>
+    <template>
+        <div class="col-lg-3">
+            <img class="media-object" src="http://placehold.it/200x200" alt="...">
+        </div>
+        <div class="col-lg-8">
+            <h5 class="media-heading authorName">James Kwon</h5>
+
+            <p class="authorPosition"> Software Engineering Developer</p>
+
+            <blockquote class="authorDescription">
+                I'm a youtuber/journalist/filmmaker and most importantly a positive thinker. I
+                love making videos, taking photos and editing it all.
+                I may be a diva fashionista, but deep in my heart I'm the biggest nerd. I love elephants and reading!
+            </blockquote>
+            <br>
+            <i class="fa fa-facebook fa-large blue"><a href="#"> Facebook</a></i>
+            <i class="fa fa-google-plus fa-large red"><a class="red" href="#"> Google Plus </a></i>
+            <i class="fa fa-linkedin fa-large"> LinkedIn</i>
+            <i class="fa fa-github fa-large"> Github</i>
+            <i class="fa fa-download"> Resume</i>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    // element registration
+    Polymer({
+        is: "author-description", // Need this to register this element
+        properties: {
+            authorId: Number,
+            authorDisplayName: String
+        },
+        computeUrl: function(authorId) {
+            return '/authorProfile/' + authorId;
+        }
+    });
+</script>

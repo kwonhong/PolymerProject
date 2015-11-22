@@ -64,7 +64,7 @@
             love making videos, taking photos and editing it all.
             I may be a diva fashionista, but deep in my heart I'm the biggest nerd. I love elephants and reading! </p>
         </blockquote>
-        <a href="#" class="pull-right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> See Detail </a>
+        <a href$="{{computeUrl(authorId)}}" class="pull-right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> See Detail </a>
     </template>
 </dom-module>
 
@@ -73,10 +73,11 @@
     Polymer({
         is: "blog-author", // Need this to register this element
         properties: {
+            authorId: Number,
             authorDisplayName: String
         },
-        combineString: function (firstString, secondString) {
-            return firstString + secondString;
+        computeUrl: function(authorId) {
+            return '/authorProfile/' + authorId;
         }
     });
 </script>

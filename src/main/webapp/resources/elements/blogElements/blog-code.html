@@ -6,23 +6,21 @@
 
 <!-- Actual Module Implementation -->
 <dom-module id="blog-code">
-<template>
-  <div class="z-depth-2">
+    <template>
     <pre>
       <code class$="{{codeType}}">{{codeText}}</code>
     </pre>
-  </div>
-</template>
+    </template>
 </dom-module>
 <script>
-  // element registration
-  Polymer({
-    is: "blog-code", // Need this to register this element
-    
-    properties: {
-      codeText: String,
-      codeType: String
-    }
-  });
+    // element registration
+    Polymer({
+        is: "blog-code", // Need this to register this element
+
+        properties: {
+            codeText: String,
+            codeType: String
+        }
+    });
 </script>
 

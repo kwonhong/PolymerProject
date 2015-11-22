@@ -45,18 +45,18 @@
         </div>
         <div class="col-lg-offset-1 col-lg-3">
             <div class="row">
-                <blog-author author-display-name="${blogAuthor.displayName}"></blog-author>
+                <blog-author author-display-name="${blogAuthor.displayName}" author-id="${blogAuthor.id}"></blog-author>
             </div>
             <div class="row">
                 <blog-related></blog-related>
             </div>
         </div>
+
     </div>
 </div>
 
 </body>
 
 <script type="text/javascript">
-    $(".dropdown-button").dropdown();
 </script>
 </html>
