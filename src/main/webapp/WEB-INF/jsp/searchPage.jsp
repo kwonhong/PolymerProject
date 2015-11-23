@@ -1,15 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <%@ include file="include/headerInclude.jsp" %>
+	<%@ include file="include/headerInclude.jsp" %>
 </head>
 <style>
-
 	@font-face {
 		font-family: RobotoBold;
 		src: url(/resources/bower_components/Materialize/font/roboto/Roboto-Medium.woff);
 	}
-
 	.red_btn{
 		background: red;
 	}
@@ -35,22 +33,18 @@
 	.teal_btn{
 		background: teal;
 	}
-
 	paper-button{
 		margin-right: 8px;
 		margin-bottom: 8px;
 		font-family: RobotoBold;
 	}
-
 	.logo{
 		margin-bottom: 40px;
 	}
-
 	h1{
 		font-family: RobotoBold;
 		font-size: 20px;
 	}
-
 	.underLine {
 		width: 100%;
 		height: 3px;
@@ -58,10 +52,8 @@
 		margin-bottom: 10px;
 		background-color: #ff526f;
 	}
-
 </style>
 <body>
-<<<<<<< 3b606b5137dcbbd83e3aa9fa1a380e83b9e39517
 
 <nav-top></nav-top>
 
@@ -107,41 +99,13 @@
 		<c:forEach var="blog" items="${blogs}">
 			<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="${blog.title}" blog-id="${blog.id}" id="cardOne"></image-card>
 		</c:forEach>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
-		<image-card card-image="http://photoshopvip.net/wp-content/uploads/2015/11/space-final.jpg" card-text="testestsetsetes" blog-id="${blog.id}" id="cardOne"></image-card>
 	</div>
 </div>
-
-<div class="underLine">&nbsp;</div>
-
 
 <div class="row" >
-		<search-pagination></search-pagination>
+	<search-pagination></search-pagination>
 </div>
-	</div>
-
-=======
-<nav-top></nav-top>
-<h1>Steven will replace this page to home page!</h1>
-<a href="<c:url value='${urlHelper.getSearchPageUrlPath()}' />"> Sample Blog</a>
-
-<div class="row">
-    <div class="col-lg-offset-1 col-lg-10 col-lg-offset-1">
-        <c:forEach var="blog" items="${blogs}">
-            <image-card card-image="http://placehold.it/200x200" card-text="${blog.title}" blog-id="${blog.id}"
-                        id="cardOne"></image-card>
-        </c:forEach>
-    </div>
 </div>
->>>>>>> Search Page Modification
+
 </body>
 </html>
