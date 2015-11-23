@@ -33,7 +33,15 @@ public class SearchController {
         List<Blog> blogs = blogService.findAllBlogWithQuery(searchText);
         model.addAttribute("blogs", blogs);
 
-        return "searchResultPage";
+        return RequestMappingDefinitions.SEARCH_RESULT_URL_PATH;
+    }
+
+    @RequestMapping(value = RequestMappingDefinitions.SEARCH_PAGE_URL_PATH, method = RequestMethod.GET)
+    public String defaultSearchPage(ModelMap modelMap) {
+
+        List<Blog> recentBlogs = blogService.findAllBlog();
+        modelMap.addAttribute("blogs", recentBlogs);
+        return RequestMappingDefinitions.SEARCH_PAGE_URL_PATH;
     }
 
     @RequestMapping(value = RequestMappingDefinitions.INDEX_URL_PATH, method = RequestMethod.GET)

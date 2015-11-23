@@ -16,10 +16,10 @@ public final class UrlHelper {
         return RequestMappingDefinitions.BLOG_URL_PATH;
     }
     public static final String getSearchUrlPath() {
-        return RequestMappingDefinitions.SEARCH_RESULT_URL_PATH;
-    }
-    public static final String getSearchPath() {
         return RequestMappingDefinitions.SEARCH_URL_PATH;
+    }
+    public static final String getSearchPageUrlPath() {
+        return RequestMappingDefinitions.SEARCH_PAGE_URL_PATH;
     }
     public static final String getIndexUrlPath() {
         return RequestMappingDefinitions.INDEX_URL_PATH;

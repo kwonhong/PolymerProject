@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-	<%@ include file="include/headerInclude.jsp" %>
+    <%@ include file="include/headerInclude.jsp" %>
 </head>
 <style>
 
@@ -61,6 +61,7 @@
 
 </style>
 <body>
+<<<<<<< 3b606b5137dcbbd83e3aa9fa1a380e83b9e39517
 
 <nav-top></nav-top>
 
@@ -128,5 +129,19 @@
 </div>
 	</div>
 
+=======
+<nav-top></nav-top>
+<h1>Steven will replace this page to home page!</h1>
+<a href="<c:url value='${urlHelper.getSearchPageUrlPath()}' />"> Sample Blog</a>
+
+<div class="row">
+    <div class="col-lg-offset-1 col-lg-10 col-lg-offset-1">
+        <c:forEach var="blog" items="${blogs}">
+            <image-card card-image="http://placehold.it/200x200" card-text="${blog.title}" blog-id="${blog.id}"
+                        id="cardOne"></image-card>
+        </c:forEach>
+    </div>
+</div>
+>>>>>>> Search Page Modification
 </body>
 </html>
