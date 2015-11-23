@@ -1,25 +1,89 @@
 
 <!-- List of dependencies! -->
 <link href="../../bower_components/polymer/polymer.html" rel="import">
-
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <!-- Actual Module Implementation -->
 <dom-module id="search-pagination">
 
 <style>
+  @font-face {
+    font-family: RobotoBold;
+    src: url(/resources/bower_components/Materialize/font/roboto/Roboto-Medium.woff);
+  }
 
+  .pagination_test{
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+    max-width: 1140px;
+    position: relative;
+  }
+  .pagination_test ul{
+    padding: 0;
+    margin:auto;
+    display: block;
+  }
+  .pagination_test li{
+    list-style-type: none;
+    display: inline-block;
+  }
+
+  .left{
+    background: white;
+    min-width:0;
+
+  }
+  .right{
+    background: white;
+    min-width:0;
+  }
+  .num-hidden{
+    display:none;
+    background: #ff526f;
+    min-width:0;
+  }
+  .num{
+    display:block;
+    background: white;
+    min-width:0;
+  }
+
+
+  .title {
+    color: black;
+    line-height: 1.2;
+  }
+  .title2 {
+    color: white;
+    line-height: 1.2;
+  }
+
+
+  li
+  {
+    display:inline-block;
+  }
 </style>
 
 <template>
 
-  <ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  <div align="center">
+  <ul class="pagination_test">
+    <li> <paper-button raised class="left" ><a class ="title"href="#!">< </a></paper-button>  </li>
+    <li> <paper-button  id ="show1" raised class="num" ><a class ="title" href="#!">1 </a> </paper-button>  </li>
+    <li> <paper-button id ="hid1" raised class="num-hidden" ><a  class ="title2" href="#!">1 </a> </paper-button>  </li>
+    <li> <paper-button id ="show2"raised class="num" ><a class ="title" href="#!">2 </a></paper-button>  </li>
+    <li> <paper-button id ="hid2"raised class="num-hidden" ><a  class ="title2" href="#!">2 </a> </paper-button>  </li>
+    <li> <paper-button id ="show3"raised class="num" ><a class ="title" href="#!">3 </a></paper-button>  </li>
+    <li> <paper-button id ="hid3"raised class="num-hidden" ><a  class ="title2" href="#!">3 </a> </paper-button>  </li>
+    <li> <paper-button id ="show4"raised class="num" ><a class ="title" href="#!">4 </a></paper-button>  </li>
+    <li> <paper-button id ="hid4"raised class="num-hidden" ><a class ="title2" href="#!">4 </a> </paper-button>  </li>
+    <li> <paper-button id ="show5"raised class="num" ><a class ="title" href="#!">5 </a></paper-button>  </li>
+    <li> <paper-button id ="hid5"raised class="num-hidden" ><a class ="title2" href="#!">5 </a> </paper-button>  </li>
+    <li> <paper-button raised class="right" ><a class ="title" href="#!">> </a></paper-button>  </li>
   </ul>
+</div>
+
   
             
 </template>
@@ -32,8 +96,20 @@
     
     properties: {
 
-
     },
+
+
   });
+
+</script>
+<script>
+  window.addEventListener("load", pageFullyLoaded, false);
+  function pageFullyLoaded(e) {
+    var show = document.getElementById("show1");
+    var hid = document.getElementById("hid1");
+
+    show.style.display = 'none';
+    hid.style.display = 'block';
+  }
 
 </script>

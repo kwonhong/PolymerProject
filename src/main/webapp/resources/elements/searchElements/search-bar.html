@@ -3,84 +3,62 @@
 <link href="../../bower_components/polymer/polymer.html" rel="import">
 
 
-  <link rel="import" href="../../bower_components/paper-input/paper-input.html">
-  <link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <!-- Actual Module Implementation -->
- <style>
-    .search_box{
-      width:80%;
-      height:50px;
+<style>
+    .search_bar {
+        color: #000000;
+        font-size: 20px;
+        width:85%;
+        border-radius: 5px;
+        padding:5px;
+
+        margin-bottom: 40px;
     }
-    .search_bar{
-      position:relative;
-      top:-5px;
-      width:inherit;
+    .search_button {
+        position:relative;
+        top: -3px;
+        background:#4285f4;
+        min-width: 0;
     }
 
-    .box{
-      color:black;
-      background-color:white;
-      border-radius:5px;
-      border: 1px solid #a1a1a1;
-    }
-    .test{
-      width:inherit;
-      border-radius:5px;
-   border: 2px solid #a1a1a1;
-
-    }
-    .test2{
-      border-outline:5px;
-      border-color:black;
-    }
 </style>
 
 
 
 <dom-module id="search-bar">
-  <template>
+    <template>
+        <form id="search_this" class="search" role="search" action="/search">
 
-        <div class="row">
-      <div class="col s6 offset-s3" align="center">      
-
-   <nav class="box">
-    <div class="nav-wrapper">
-      <form>
-
-        <div class="input-field">
-          <input id="search" type="search" placeholder="Search Tutorials" required>
-          <label for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <!-- testing polymer card instead
-  <paper-card class="test">
-  <paper-input class="test2"></paper-input>
-  </paper-card>
--->
-
-          </div>
-          </div>
+        <input name="searchText" type="text" autocomplete="off" placeholder="Search" class="search_bar"></input>
+        <paper-button raised class="search_button" on-click="submitForm">
+            <iron-icon icon ="search"><iron-icon>
+        </paper-button>
+        </form>
 
 
-
-  </template>
+    </template>
 </dom-module>
 
 <script>
-  // element registration
-  Polymer({
-    is: "search-bar", // Need this to register this element
-    
-    properties: {
+    // element registration
+    Polymer({
+        is: "search-bar", // Need this to register this element
 
-    },
+        properties: {
+
+        },
+      submitForm:  function() {
+        document.getElementById('search_this').submit();
+    }
 
 
-  });
+
+
+    });
+
 
 
 </script>
