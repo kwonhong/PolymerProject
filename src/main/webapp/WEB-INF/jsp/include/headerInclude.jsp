@@ -31,8 +31,3 @@
 <link href="/resources/elements/authorElements/author-projects.html" rel="import">
 <link href="/resources/elements/authorElements/author-blogs.html" rel="import">
 
-<link rel="import" href="/resources/bower_components/paper-input/paper-input.html">
-<link rel="import" href="/resources/bower_components/paper-card/paper-card.html">
-<link rel="import" href="/resources/bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="/resources/bower_components/paper-button/paper-button.html">
-

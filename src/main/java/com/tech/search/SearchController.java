@@ -18,8 +18,6 @@ import java.util.List;
 @Controller
 public class SearchController {
 
-    private static final int MAX_LENGTH = 50;
-
     @Autowired
     private BlogService blogService;
 
@@ -44,20 +42,11 @@ public class SearchController {
         return RequestMappingDefinitions.SEARCH_PAGE_URL_PATH;
     }
 
-    @RequestMapping(value = RequestMappingDefinitions.INDEX_URL_PATH, method = RequestMethod.GET)
-    public String getIndexResult(ModelMap model) {
-
-        List<Blog> blogs = blogService.findAllBlog();
-        blogs.stream().forEach(blogService -> {
-
-            String title = blogService.getTitle();
-            title = (title.length() > MAX_LENGTH)? title.substring(0, 50) : title;
-            blogService.setTitle(title);
-        });
-
-        model.addAttribute("blogs", blogs);
-
-        return "searchPage";
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView indexPage() {
+        ModelAndView modelAndView = getDefaultModelAndView();
+        modelAndView.setViewName("searchPage");
+        return modelAndView;
     }
 
     public ModelAndView getDefaultModelAndView() {

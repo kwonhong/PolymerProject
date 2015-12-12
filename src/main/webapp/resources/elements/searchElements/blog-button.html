@@ -1,72 +1,31 @@
 <!-- List of dependencies! -->
 <link href="../../bower_components/polymer/polymer.html" rel="import">
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
 <!-- Actual Module Implementation -->
 <dom-module id="blog-button">
 
-    <style>
-        @font-face {
-            font-family: RobotoBold;
-            src: url(/resources/bower_components/Materialize/font/roboto/Roboto-Medium.woff);
-        }
-
-        .red_btn{
-            background: red;
-        }
-        .red_btn:hover{
-            opacity:0.7;
-            transition: opacity 420ms ease-in-out;
-        }
-        .yellow_btn{
-            background: yellow;
-        }
-        .orange_btn{
-            background: orange;
-        }
-        .green_btn{
-            background: green;
-        }
-        .blue_btn{
-            background: blue;
-        }
-        .purple_btn{
-            background: purple;
-        }
-        .teal_btn{
-            background: teal;
-        }
-
-        paper-button{
-            margin-right: 8px;
-            margin-bottom: 8px;
-            font-family: RobotoBold;
-        }
-
-    </style>
 
     <template>
+        <style>
+            .btn {
+                background-color: blue;
+            }
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-lg-offset-3" align="center">
-                    <ul>
-                        <paper-button raised class="red_btn" >test </paper-button>
-                        <paper-button raised class="yellow_btn" > testsdfsda </paper-button>
-                        <paper-button raised class="orange_btn" > testsdf </paper-button>
-                        <paper-button raised class="green_btn" > test </paper-button>
-                        <paper-button raised class="blue_btn" > test xdsf</paper-button>
-                        <paper-button raised class="teal_btn" > testsdf </paper-button>
-                        <paper-button raised class="purple_btn" > testsdfa </paper-button>
-                        <paper-button raised class="red_btn" > test </paper-button>
-                        <paper-button raised class="yellow_btn" > tessdaf </paper-button>
-                        <paper-button raised class="orange_btn" > testsdaf </paper-button>
+            .btn:hover {
+                background-color: purple;
+            }
 
-                    </ul>
-                </div>
-            </div>
-        </div>
+            :host {
+                opacity: 0.4;
+                transition: opacity 420ms ease-in-out;
+            }
 
+            :host(:hover) {
+                opactiy: 1;
+            }
 
+        </style>
+        <a id="buttonss" class="waves-effect waves-light btn">{{buttonText}}</a>
     </template>
 </dom-module>
 
@@ -76,10 +35,30 @@
         is: "blog-button", // Need this to register this element
 
         properties: {
-
+            buttonText: {
+                type: String,
+                value: 'test'
+            },
+            buttonColor: String,
         },
 
 
     });
 
+</script>
+
+<script>
+    /*
+
+     window.addEventListener("load", pageFullyLoaded, false);
+     function pageFullyLoaded(e) {
+     console.log("Testing3");
+     var button = document.getElementById('buttonss');
+     button.style.background-color='#2bbbad';
+
+     });
+
+
+     };
+     */
 </script>
