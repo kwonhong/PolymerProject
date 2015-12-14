@@ -19,6 +19,9 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "COLOR", nullable = false)
+    private String color;
+
     @Column(name = "NAME", nullable = false)
     private String name;
 

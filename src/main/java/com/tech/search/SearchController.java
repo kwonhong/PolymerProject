@@ -3,6 +3,7 @@ package com.tech.search;
 
 import com.tech.blog.Blog;
 import com.tech.service.BlogService;
+import com.tech.service.CategoryService;
 import com.tech.urls.RequestMappingDefinitions;
 import com.tech.urls.UrlHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,22 @@ public class SearchController {
     @Autowired
     private UrlHelper urlHelper;
 
+    @Autowired
+    private CategoryService categoryService;
+
     @RequestMapping(value = RequestMappingDefinitions.SEARCH_URL_PATH, method = RequestMethod.GET)
     public String getSearchResult(ModelMap model,
                                   @RequestParam("searchText") String searchText) {
 
         List<Blog> blogs = blogService.findAllBlogWithQuery(searchText);
+        List<Blog> mostRecentBlogs = blogService.findAllBlog();
+        mostRecentBlogs.removeAll(blogs);
+
         model.addAttribute("blogs", blogs);
+        model.addAttribute("mostRecentBlogs", mostRecentBlogs);
+        model.addAttribute("searchText", searchText);
+        model.addAttribute("searchNum", blogs.size());
+        model.addAttribute("categoryService", categoryService);
 
         return RequestMappingDefinitions.SEARCH_RESULT_URL_PATH;
     }

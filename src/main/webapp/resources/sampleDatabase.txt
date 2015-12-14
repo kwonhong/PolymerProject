@@ -5,6 +5,7 @@ CREATE TABLE testingDatabase.blog (
 	author_id INT NOT NULL,
 	category_id INT NOT NULL,
 	title TEXT NOT NULL,
+	description TEXT NOT NULL,
 	contents TEXT NOT NULL,
 	views INT NOT NULL,
 	likes INT NOT NULL,
@@ -14,8 +15,9 @@ CREATE TABLE testingDatabase.blog (
 );
 
 # Blog Predefined Data
-INSERT INTO testingDatabase.blog (author_id, category_id, title, contents, views, likes, creation_date, updated_date)
+INSERT INTO testingDatabase.blog (description, author_id, category_id, title, contents, views, likes, creation_date, updated_date)
 VALUES (
+'Sample Description',
 1,
 1,
 'Introduction to WordPress Plugin Developments',
@@ -33,8 +35,8 @@ CURTIME(),
 CURTIME()
 );
 
-INSERT INTO testingDatabase.blog (author_id, category_id, title, contents, views, likes, creation_date, updated_date)
-VALUES (1, 1, 'Sample Title','#header this is header ## #para this is paragraph ##',0, 0, CURTIME(), CURTIME());
+INSERT INTO testingDatabase.blog (description, author_id, category_id, title, contents, views, likes, creation_date, updated_date)
+VALUES ('Sample Description2',1, 1, 'Sample Title','#header this is header ## #para this is paragraph ##',0, 0, CURTIME(), CURTIME());
 
 CREATE TABLE testingDatabase.author (
 	id INT NOT NULL auto_increment,
@@ -54,6 +56,7 @@ VALUES ('James','Kwon','James Kwon', 'hongilkwon841@gmail.com', CURTIME(), CURTI
 CREATE TABLE testingDatabase.category (
 	id INT NOT NULL auto_increment,
 	name TEXT NOT NULL,
+	color TEXT NOT NULL,
 	display_name TEXT NOT NULL,
 	enabled BOOL,
 	creation_date DATE NOT NULL,
@@ -62,8 +65,8 @@ CREATE TABLE testingDatabase.category (
 );
 
 # Category Predefined Data
-INSERT INTO testingDatabase.category (name, display_name, enabled, creation_date, updated_date)
-VALUES ('JavaCode','Java Code', true, CURTIME(), CURTIME());
+INSERT INTO testingDatabase.category (id, name, display_name, color, enabled, creation_date, updated_date)
+VALUES (0, 'JavaCode','Java Code', '#ff6f00', true, CURTIME(), CURTIME());
 
 CREATE TABLE testingDatabase.tag (
 	id INT NOT NULL auto_increment,

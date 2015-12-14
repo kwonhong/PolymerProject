@@ -28,6 +28,9 @@ public class Blog implements Comparable<Blog>{
     @Column(name = "TITLE", nullable = false)
     private String title;
 
+    @Column(name = "DESCRIPTION", nullable = false)
+    private String description;
+
     @Column(name = "CONTENTS", nullable = true)
     private String contents;
 

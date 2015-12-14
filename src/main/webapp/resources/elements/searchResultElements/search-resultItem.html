@@ -23,7 +23,7 @@
         }
 
         .category {
-            color: #ff6f00;
+            /*color: #ff6f00;*/
             font-size: smaller;
             font-family: RobotoRegular;
             line-height: 1.2;
@@ -39,7 +39,7 @@
     </style>
     <template>
         <a href$="{{computeUrl(blogId)}}"><img src="http://placehold.it/700x400" alt=""></a>
-        <a class="category">{{blogCategory}}</a><br>
+        <a class="category" style$="{{getCategoryStyle(blogCategoryColor)}}">{{blogCategoryName}}</a><br>
         <a class="titleText" href$="{{computeUrl(blogId)}}">{{blogTitle}}</a>
     </template>
 </dom-module>
@@ -49,11 +49,15 @@
         is: "search-resultItem", // Need this to register this element
         properties: {
             blogTitle: String,
-            blogCategory: String,
+            blogCategoryName: String,
+            blogCategoryColor: String,
             blogId: Number
         },
         computeUrl: function(blogId) {
             return 'blog/' + blogId;
+        },
+        getCategoryStyle: function(blogCategoryColor) {
+            return 'color:' + blogCategoryColor;
         }
     });
 </script>

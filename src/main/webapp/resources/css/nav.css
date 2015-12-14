@@ -1,0 +1,199 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+
+body {
+    margin-top: 80px;
+}
+
+.navbar-default {
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    border-color: rgba(35, 35, 35, .05);
+    background-color: #fff;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: #007FFF;
+    padding: 1px;
+    line-height: 1.90em;
+    -webkit-transition: padding .2s ease-in;
+    -moz-transition: padding .2s ease-in;
+    transition: padding .2s ease-in;
+    float: none;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #007FFF;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #001A33;
+}
+
+.navbar-default .navbar-toggle, .navbar-default .navbar-collapse {
+    border-color: transparent;
+}
+
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+    font-size: 12px;
+    color: #001A33;
+    text-transform: uppercase;
+}
+
+.navbar-default .nav > li > a:hover,
+.navbar-default .nav > li > a:focus:hover {
+    color: #007FFF;
+}
+
+.navbar-default .nav .nav-link.active,
+.navbar-default .nav .nav-link.active:focus {
+    color: #007FFF !important;
+    background-color: transparent;
+}
+
+/* responsive nav */
+@media (max-width: 48em) {
+    .navbar-default .navbar-nav > .nav-item {
+        float: none;
+        margin-left: .1rem;
+    }
+
+    .navbar-default .navbar-nav {
+        float: none !important;
+    }
+}
+
+@media (min-width: 48em) {
+    .navbar-default {
+        border-color: transparent;
+        background-color: #fff;
+        min-height: 60px;
+    }
+
+    .navbar-brand {
+        color: #007FFF;
+        float: left;
+        padding: 9px;
+        padding-left: 1px;
+    }
+
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        color: #001A33;
+    }
+
+    .navbar-default .nav > li > a,
+    .navbar-default .nav > li > a:focus {
+        color: #001A33;
+        padding-left: 5px;
+        padding-top: 21px;
+        letter-spacing: 1.1px;
+    }
+
+    .navbar-default .nav > li > a:hover,
+    .navbar-default .nav > li > a:focus:hover {
+        color: #001A33;
+    }
+
+    #topNav {
+        background-color: #fff;
+    }
+
+}
+
+.icon-search {
+    font-size: 20px;
+}
+
+body.mode-search {
+    overflow: hidden;
+}
+
+body.mode-search .form,
+body.mode-search .icon-close {
+    opacity: 1;
+    transform: none;
+    pointer-events: all;
+}
+
+body.mode-search .control .icon-search {
+    opacity: 1;
+}
+
+body.mode-search .searchBox {
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    box-sizing: border-box;
+    background: #007FFF;
+    outline: 0;
+    transform-origin: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(100);
+}
+
+body.mode-search .navbar {
+    opacity: 0;
+}
+
+body.mode-search .container {
+    opacity: 0;
+}
+
+.icon-close {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color: #FFF;
+    font-size: 80px;
+    opacity: 0;
+    transform: translate(10px, 0) rotate(90deg);
+    transition: all 0.3s ease-in-out;
+}
+
+.form {
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    margin-top: -40px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(40px, 0);
+    transition: all 0.3s ease-in-out;
+}
+
+.form input {
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: #fff;
+    font-size: 54px;
+    border: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    outline: 0;
+    font-weight: 200;
+}
+
+.form ::-webkit-input-placeholder {
+    color: #EEE;
+}
+
+.form :-moz-placeholder {
+    color: #EEE;
+    opacity: 1;
+}
+
+.form ::-moz-placeholder {
+    color: #EEE;
+    opacity: 1;
+}
+
+.form :-ms-input-placeholder {
+    color: #EEE;
+}
