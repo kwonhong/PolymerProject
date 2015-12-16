@@ -59,6 +59,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public List<Blog> findAllBlogByCategoryId(long categoryId, int limit, int offset) {
+        return dao.findAllBlogByCategoryId(categoryId, limit, offset);
+    }
+
+    @Override
     public long countAllBlogWithQuery(String query) {
         return dao.countAllBlogWithQuery(query);
     }

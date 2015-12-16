@@ -20,4 +20,6 @@ public interface BlogDao {
     long countAllBlogWithQuery(String query);
 
     List<Blog> findMostRecentBlogs(int limit);
+
+    List<Blog> findAllBlogByCategoryId(long categoryId, int limit, int offset);
 }

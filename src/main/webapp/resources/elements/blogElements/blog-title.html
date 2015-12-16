@@ -1,73 +1,81 @@
-
 <!-- List of dependencies! -->
 <link href="../../bower_components/polymer/polymer.html" rel="import">
 
 <!-- Actual Module Implementation -->
 <dom-module id="blog-title">
-<style type="text/css">
-  .underLine {
-    width: 90%;
-    height: 5px;
-    margin-bottom: 30px;
-    background-color: #ff526f;
-  }
+    <style type="text/css">
+        .underLine {
+            width: 90%;
+            height: 5px;
+            margin-bottom: 30px;
+        }
 
-  @font-face {
-    font-family: RobotoBold;
-    src: url(../../bower_components/Materialize/font/roboto/Roboto-Medium.woff);
-  }
+        @font-face {
+            font-family: RobotoBold;
+            src: url(../../bower_components/Materialize/font/roboto/Roboto-Medium.woff);
+        }
 
-  @font-face {
-    font-family: RobotoRegular;
-    src: url(../../bower_components/Materialize/font/roboto/Roboto-Regular.woff);
-  }
+        @font-face {
+            font-family: RobotoRegular;
+            src: url(../../bower_components/Materialize/font/roboto/Roboto-Regular.woff);
+        }
 
-  .titleText {
-    font-family: RobotoBold;
-  }
+        .titleText {
+            font-family: RobotoBold;
+            font-weight: bold;
+        }
 
-  .date {
-    font-family: RobotoRegular;
-  }
+        .date {
+            font-family: RobotoRegular;
+            font-weight: bold;
+        }
 
-  .authorName {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    margin-left: 3px;
-    margin-right: 10px;
-  }
+        .authorName {
+            font-family: RobotoRegular;
+            font-weight: bold;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            margin-left: 3px;
+            margin-right: 10px;
+        }
 
-</style>
-<template>
-    <h1 class="titleText">{{titleText}}</h1>
+    </style>
+    <template>
+        <h1 class="titleText">{{titleText}}</h1>
+        <span class="authorName red-text lighten-2"><i class="material-icons md-24 md-light" style$="{{getFontColor(categoryColor)}}">perm_identity</i><strong>{{authorName}}</strong></span>
+        <span class="date grey-text lighten-1">
+            <i class="material-icons md-24 md-light" style$="{{getFontColor(categoryColor)}}">av_timer</i><strong>{{date}}</strong></span>
 
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-    <span class="authorName red-text lighten-2">{{authorName}}</span>
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-    <span class="date grey-text lighten-1"><i>{{date}}</i></span>
-    <div class="underLine">&nbsp;</div>
-</template>
+        <div class="underLine" style$="{{getBackgroundColor(categoryColor)}}">&nbsp;</div>
+    </template>
 </dom-module>
 
 <!-- Variables Definitions & Javascript -->
 <script>
-  Polymer({
-    // Registering Event
-    is: "blog-title",
+    Polymer({
+        // Registering Event
+        is: "blog-title",
 
-    // Variables
-    properties: {
-      titleText: String,
-      authorName: {
-        type: String,
-        value: "Unknown"
-      },
-      date: {
-        type: String,
-        value: "15 Octoboer, 2015"
-      }
-    }
-  });
+        // Variables
+        properties: {
+            titleText: String,
+            authorName: {
+                type: String,
+                value: "Unknown"
+            },
+            date: {
+                type: String,
+                value: "15 Octoboer, 2015"
+            },
+            categoryColor: String
+        },
+        getBackgroundColor: function (categoryColor) {
+            return "background-color: " + categoryColor;
+        },
+        getFontColor: function (categoryColor) {
+            return "color: " + categoryColor
+        }
+    });
 </script>
 
 

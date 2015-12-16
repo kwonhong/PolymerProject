@@ -3,14 +3,6 @@
 <!-- Actual Module Implementation -->
 <dom-module id="blog-author">
     <style type="text/css">
-        .underLine {
-            width: 100%;
-            height: 3px;
-            margin-top: 250px;
-            margin-bottom: 10px;
-            background-color: #ff526f;
-        }
-
         @font-face {
             font-family: RobotoBold;
             src: url(../../bower_components/Materialize/font/roboto/Roboto-Medium.woff);
@@ -19,10 +11,12 @@
         .authorName {
             font-family: RobotoBold;
             font-size: 15px;
-            color: #ad1457;
+            font-weight: bold;
+            color: #fff;
             margin-top: 10px;
             margin-left: 2px;
         }
+
         .authorDescription {
             font-family: RobotoRegular;
             font-size: 12px;
@@ -30,41 +24,76 @@
             margin-bottom: 5px;
         }
 
-
         .authorPosition {
             font-family: RobotoRegular;
             font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
         }
 
-        a {
-            color: #ad1457;
-            font-family: RobotoRegular;
+        .underLine {
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
         }
 
+        .headingBox {
+            padding: 30px;
+        }
+
+        .section .heading {
+            margin-top: 0;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .contentBox {
+            padding-bottom: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .border {
+            width: 72px;
+            height: 72px;
+            border-radius: 49px;
+            border-color: #fff;
+            background: #444;
+            margin: auto auto;
+        }
+        
+        .section {
+            margin-bottom: 10px;
+        }
     </style>
     <template>
-        <div class="underLine">&nbsp;</div>
+        <div class="section" style$="{{getBackgroundColor(categoryColor)}}">
+            <div class="headingBox">
+                <h2 class="heading">Author Description</h2>
 
-        <div class="media">
-            <div class="media-left">
-                <a href="#">
-                    <img class="media-object"
-                         src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEyYzA1ZDUzOCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTJjMDVkNTM4Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
-                         alt="...">
-                </a>
+                <div class="underLine">&nbsp;</div>
             </div>
-            <div class="media-body text-">
-                <h5 class="media-heading authorName">{{authorDisplayName}}</h5>
-                <p class="authorPosition"> Software Engineering Developer</p>
+
+            <div class="contentBox">
+                <div class="media">
+                    <div class="media-left">
+                        <a href$="{{authorLink}}">
+                            <img class="media-object border"
+                                 src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEyYzA1ZDUzOCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTJjMDVkNTM4Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+                                 alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body text-">
+                        <a href$="{{authorLink}}" ><h5 class="media-heading authorName">{{authorDisplayName}}</h5></a>
+                        <p class="authorPosition"> Software Engineering Developer</p>
+                        <p class="authorDescription">I'm a youtuber/journalist/filmmaker and most importantly a positive
+                            thinker. I love making videos, taking photos and editing it all.
+                            I may be a diva fashionista, but deep in my heart I'm the biggest nerd. I love elephants and
+                            reading! </p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <blockquote class="authorDescription">
-            <p>I'm a youtuber/journalist/filmmaker and most importantly a positive thinker. I
-            love making videos, taking photos and editing it all.
-            I may be a diva fashionista, but deep in my heart I'm the biggest nerd. I love elephants and reading! </p>
-        </blockquote>
-        <a href$="{{computeUrl(authorId)}}" class="pull-right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> See Detail </a>
     </template>
 </dom-module>
 
@@ -74,10 +103,12 @@
         is: "blog-author", // Need this to register this element
         properties: {
             authorId: Number,
-            authorDisplayName: String
+            authorDisplayName: String,
+            categoryColor: String,
+            authorLink: String
         },
-        computeUrl: function(authorId) {
-            return '/authorProfile/' + authorId;
+        getBackgroundColor: function (categoryColor) {
+            return "background-color: " + categoryColor;
         }
     });
 </script>

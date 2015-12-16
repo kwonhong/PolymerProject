@@ -89,17 +89,15 @@
 
         <%-- Latest Blog Components--%>
         <div class="col-lg-4">
-            <aside class="blog aside section">
+            <aside class="blog section">
                 <div class="section-inner">
                     <h2 class="heading">Latest Blog Posts</h2>
-
                     <div class="underLine">&nbsp;</div>
                 </div>
 
                 <div id="rss-feeds" class="content">
                     <c:forEach var="blog" items="${mostRecentBlogs}" varStatus="loop">
-                        <blog-related-item blog-id="${blog.id}" blog-title="${blog.title}"
-                                           blog-description="${blog.description}"></blog-related-item>
+                        <blog-related-item blog-id="${blog.id}" blog-title="${blog.title}" blog-description="${blog.description}"></blog-related-item>
                     </c:forEach>
                 </div>
             </aside>

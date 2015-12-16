@@ -34,4 +34,8 @@ public final class UrlHelper {
     public String getSearchUrlWithPagination(int pageNum, String searchText) {
         return UrlUtils.setParameter("/" + SEARCH_URL_PATH + "/" + PREFIX_PAGE + pageNum + "/", "searchText",  searchText);
     }
+
+    public String getAuthorUrl(int authorId) {
+        return "/" + AUTHOR_PROFILE_URL_PATH + "/" + authorId;
+    }
 }

@@ -69,4 +69,10 @@ public class BlogDaoImpl extends AbstractDao implements BlogDao{
         String sqlQuery = "SELECT * from blog ORDER BY CREATION_DATE DESC LIMIT " + limit;
         return getSession().createSQLQuery(sqlQuery).addEntity(Blog.class).list();
     }
+
+    @Override
+    public List<Blog> findAllBlogByCategoryId(long categoryId, int limit, int offset) {
+        String sqlQuery = "SELECT * from blog WHERE CATEGORY_ID = " + categoryId + " LIMIT " + limit + " OFFSET " + offset;
+        return getSession().createSQLQuery(sqlQuery).addEntity(Blog.class).list();
+    }
 }
