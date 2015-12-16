@@ -14,7 +14,11 @@ public interface BlogService {
 
     List<Blog> findAllBlog();
 
-    List<Blog> findAllBlogWithQuery(String query);
+    List<Blog> findAllBlogWithQuery(String query, int limit, int offset);
+
+    List<Blog> findMostRecentBlogs(int limit);
+
+    long countAllBlogWithQuery(String query);
 
     void deleteBlogByID(int id);
 

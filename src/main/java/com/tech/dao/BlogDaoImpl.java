@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -26,9 +27,10 @@ public class BlogDaoImpl extends AbstractDao implements BlogDao{
         return (List<Blog>) criteria.list();
     }
 
+    //TODO Change to StringBuilder
     @Override
-    public List<Blog> findAllBlogWithQuery(String query) {
-        String sqlQuery = "SELECT * from blog where blog.title LIKE \'%" + query + "%\'";
+    public List<Blog> findAllBlogWithQuery(String query, int limit, int offset) {
+        String sqlQuery = "SELECT * from blog where blog.title LIKE \'%" + query + "%\' LIMIT " + limit + " OFFSET " + offset;
         return getSession().createSQLQuery(sqlQuery).addEntity(Blog.class).list();
     }
 
@@ -54,5 +56,17 @@ public class BlogDaoImpl extends AbstractDao implements BlogDao{
     @Override
     public void saveOrUpdateBlog(Blog blog) {
         getSession().saveOrUpdate(blog);
+    }
+
+    @Override
+    public long countAllBlogWithQuery(String query) {
+        String sqlQuery = "SELECT count(*) from blog where blog.title LIKE \'%" + query + "%\'";
+        return  ((BigInteger) getSession().createSQLQuery(sqlQuery).list().get(0)).longValue(); //TODO Find a better way to do this
+    }
+
+    @Override
+    public List<Blog> findMostRecentBlogs(int limit) {
+        String sqlQuery = "SELECT * from blog ORDER BY CREATION_DATE DESC LIMIT " + limit;
+        return getSession().createSQLQuery(sqlQuery).addEntity(Blog.class).list();
     }
 }

@@ -49,8 +49,18 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public List<Blog> findAllBlogWithQuery(String query) {
-        return dao.findAllBlogWithQuery(query);
+    public List<Blog> findAllBlogWithQuery(String query, int limit, int offset) {
+        return dao.findAllBlogWithQuery(query, limit, offset);
+    }
+
+    @Override
+    public List<Blog> findMostRecentBlogs(int limit) {
+        return dao.findMostRecentBlogs(limit);
+    }
+
+    @Override
+    public long countAllBlogWithQuery(String query) {
+        return dao.countAllBlogWithQuery(query);
     }
 
     @Override

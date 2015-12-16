@@ -9,6 +9,7 @@ import com.tech.urls.UrlHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,8 @@ import java.util.List;
 
 @Controller
 public class SearchController {
+
+    private static final int BLOG_NUM_PER_PAGE = 9;
 
     @Autowired
     private BlogService blogService;
@@ -32,17 +35,44 @@ public class SearchController {
     public String getSearchResult(ModelMap model,
                                   @RequestParam("searchText") String searchText) {
 
-        List<Blog> blogs = blogService.findAllBlogWithQuery(searchText);
-        List<Blog> mostRecentBlogs = blogService.findAllBlog();
-        mostRecentBlogs.removeAll(blogs);
-
-        model.addAttribute("blogs", blogs);
-        model.addAttribute("mostRecentBlogs", mostRecentBlogs);
-        model.addAttribute("searchText", searchText);
-        model.addAttribute("searchNum", blogs.size());
-        model.addAttribute("categoryService", categoryService);
+        // Search Result with default pager
+        Pager pager = new Pager();
+        getSearchResultHelper(model, pager, searchText);
 
         return RequestMappingDefinitions.SEARCH_RESULT_URL_PATH;
+    }
+
+    @RequestMapping(value = RequestMappingDefinitions.SEARCH_URL_PATH + "/" + RequestMappingDefinitions.PREFIX_PAGE + "{pageNum}", method = RequestMethod.GET)
+    public String getSearchResultWithPagination(ModelMap modelMap,
+                                                @PathVariable Integer pageNum,
+                                                @RequestParam String searchText) {
+
+        // TODO Validate if the page number is valid!
+        if (pageNum <= 0) {
+            pageNum = 1;
+        }
+
+        Pager pager = new Pager(pageNum);
+        getSearchResultHelper(modelMap, pager, searchText);
+
+        return RequestMappingDefinitions.SEARCH_RESULT_URL_PATH;
+    }
+
+    private void getSearchResultHelper(ModelMap modelMap, Pager pager, String searchText) {
+
+        long count = blogService.countAllBlogWithQuery(searchText);
+        List<Blog> blogs = blogService.findAllBlogWithQuery(searchText, Pager.DEFAULT_SEARCH_RESULT_SIZE, pager.getOffset());
+        List<Blog> mostRecentBlogs = blogService.findMostRecentBlogs(Pager.DEFAULT_LATEST_BLOG_NUM);
+
+        modelMap.addAttribute("blogs", blogs);
+        modelMap.addAttribute("mostRecentBlogs", mostRecentBlogs);
+        modelMap.addAttribute("searchText", searchText);
+        modelMap.addAttribute("searchNum", blogs.size());
+        modelMap.addAttribute("categoryService", categoryService);
+        modelMap.addAttribute("urlHelper", urlHelper);
+
+        modelMap.addAttribute("paginationNums", pager.getPaginationNumbers(blogs.size()));
+        modelMap.addAttribute("activePageNum", pager.getPageNum());
     }
 
     @RequestMapping(value = RequestMappingDefinitions.SEARCH_PAGE_URL_PATH, method = RequestMethod.GET)

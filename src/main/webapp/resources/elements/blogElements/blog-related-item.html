@@ -13,15 +13,18 @@
 
         .mediaDescription {
             font-size: 12px;
-            padding-bottom: 10px;
             color:#000;
+            margin-bottom: 0px;
             font-weight: normal;
-            
+        }
+        
+        .paddingBottom {
+            padding-bottom: 10px;
         }
 
     </style>
     <template>
-        <div class="media">
+        <div class="media paddingBottom">
             <div class="media-left">
                 <a href$="{{computeUrl(blogId)}}">
                     <img class="media-object"

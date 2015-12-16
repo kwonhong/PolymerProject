@@ -51,7 +51,8 @@
     <%-- Search Result Title --%>
     <div class="row">
         <div class="col-lg-12">
-            <search-resultTitle search-result-text="${searchText}" search-result-num="${searchNum}"></search-resultTitle>
+            <search-resultTitle search-result-text="${searchText}"
+                                search-result-num="${searchNum}"></search-resultTitle>
         </div>
     </div>
     <%-- End Search Result Title --%>
@@ -61,16 +62,27 @@
 
         <%-- Search Result Blogs/Tutorials --%>
         <div class="col-lg-8">
-            <c:forEach var="blog" items="${blogs}">
-                <div class="col-lg-4">
-                    <c:set var="category" value="${categoryService.getCategoryById(blog.categoryId)}"/>
-                    <search-resultItem blog-id="${blog.id}"
-                                       blog-title="${blog.title}"
-                                       blog-category-name="${category.displayName}"
-                                       blog-category-color="${category.color}">
+            <c:forEach var="blog" items="${blogs}" varStatus="loop">
 
-                    </search-resultItem>
+                <%-- Breaking the Rows --%>
+                <c:choose>
+                    <c:when test="${loop.first}">
+                        <div class="row"></div>
+                    </c:when>
+                    <c:when test="${loop.index mod 3 eq 0}">
+                        <div class="row"></div>
+                    </c:when>
+                </c:choose>
+                <%-- End Breaking the Rows --%>
+
+                <c:set var="category" value="${categoryService.getCategoryById(blog.categoryId)}"/>
+                <div class="col-lg-4">
+                    <search-resultItem blog-id="${blog.id}" blog-title="${blog.title}"
+                                       blog-category-name="${category.displayName}"
+                                       blog-category-color="${category.color}"></search-resultItem>
                 </div>
+
+
             </c:forEach>
         </div>
         <%-- End Search Result Blogs/Tutorials --%>
@@ -80,12 +92,14 @@
             <aside class="blog aside section">
                 <div class="section-inner">
                     <h2 class="heading">Latest Blog Posts</h2>
+
                     <div class="underLine">&nbsp;</div>
                 </div>
 
                 <div id="rss-feeds" class="content">
-                    <c:forEach var="blog" items="${mostRecentBlogs}">
-                        <blog-related-item blog-id="${blog.id}" blog-title="${blog.title}" blog-description="${blog.description}"></blog-related-item>
+                    <c:forEach var="blog" items="${mostRecentBlogs}" varStatus="loop">
+                        <blog-related-item blog-id="${blog.id}" blog-title="${blog.title}"
+                                           blog-description="${blog.description}"></blog-related-item>
                     </c:forEach>
                 </div>
             </aside>
@@ -93,7 +107,32 @@
         <%-- End Latest Blog Components--%>
 
     </div>
+
+    <nav>
+        <div class="col-lg-8 pagination">
+            <ul>
+                <li class="previous"><a href="${urlHelper.getSearchUrlWithPagination(pageNum-1, searchText)}">&lt;</a>
+                </li>
+                <c:forEach var="pageNum" items="${paginationNums}">
+                    <c:choose>
+                        <c:when test="${pageNum eq activePageNum}">
+                            <li class="active"><a
+                                    href="${urlHelper.getSearchUrlWithPagination(pageNum, searchText)}">${activePageNum}</a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${urlHelper.getSearchUrlWithPagination(pageNum, searchText)}">${pageNum}</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <li class="next"><a href="${urlHelper.getSearchUrlWithPagination(pageNum + 1, searchText)}">&gt;</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </div>
+
 
 </body>
 
