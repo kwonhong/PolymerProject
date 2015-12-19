@@ -5,54 +5,214 @@
     <style type="text/css">
         .authorName {
             font-family: RobotoBold;
-            font-size: 18px;
-            color: #ad1457;
-            margin-top: 10px;
+            font-size: 20px;
             padding-left: 2px;
-        }
-
-        .authorDescription {
-            font-family: RobotoRegular;
-            font-size: 15px;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            font-weight: bold;
+            color: #007FFF;
         }
 
         .authorPosition {
             font-family: RobotoRegular;
+            font-weight: bold;
             font-size: 15px;
+            color: #000;
+            margin-left: 10px;
         }
 
-        .blue {
-            color: #004d40;
-            padding-left: 5px;
+        .border {
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            border-color: #fff;
+            background: #444;
+            margin: auto 10px auto auto;
         }
 
-        .red {
-            color: #ad1457;
+        /** blockquote styles **/
+
+        .bq1 {
+            padding-left: 16px;
+            border-left: 5px solid #577da4;
+            width: 700px;
         }
+
+        .bq1 p {
+            font-style: italic;
+            font-size: 14px;
+            line-height: 18px;
+            color: #8c8785;
+        }
+
+        .social {
+            margin: 0 auto;
+            padding-top: 60px;
+            width: 400px;
+        }
+
+        .social ul li {
+            background: #222;
+            border-radius: 50%;
+            /*border: medium solid #fff;*/
+            float: right;
+            height: 50px;
+            list-style: none;
+            margin: 0 10px;
+            position: relative;
+            bottom: 60px;
+            width: 50px;
+        }
+
+        .social ul li:before {
+            font: 400 1em/50px "FontAwesome";
+        }
+
+        .social ul li:hover {
+            animation: transform .5s forwards, shadow 1s forwards;
+            -ms-animation: transform .5s forwards, shadow 1s forwards;
+            -moz-animation: transform .5s forwards, shadow 1s forwards;
+            -webkit-animation: transform .5s forwards, shadow 1s forwards;
+        }
+
+        .social ul .facebook {
+            border: medium solid #3b5998;
+        }
+
+        .social ul .facebook:hover {
+            background: #3b5998;
+        }
+
+        .social ul .facebook:before {
+            color: #fff;
+            content: '\f09a';
+            display: block;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .social ul .twitter {
+            border: medium solid #00aced;
+        }
+
+        .social ul .twitter:hover {
+            background: #00aced;
+        }
+
+        .social ul .twitter:before {
+            color: #fff;
+            content: '\f099';
+            display: block;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .social ul .fa-linkedin {
+            border: medium solid #dd4b39;
+        }
+
+        .social ul .fa-linkedin:hover {
+            background: #dd4b39;
+        }
+
+        .social ul .fa-linkedin:before {
+            color: #fff;
+            content: '\f0e1';
+            display: block;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .social ul .fa-github {
+            border: medium solid #517fa4;
+        }
+
+        .social ul .fa-github:hover {
+            background: #517fa4;
+        }
+
+        .social ul .fa-github:before {
+            color: #fff;
+            content: '\f09b';
+            display: block;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        @-webkit-keyframes transform {
+            from {
+                transform: translateY(0);
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+                -webkit-transform: translateY(-10px);
+                -moz-transform: translateY(-10px);
+                -ms-transform: translateY(-10px);
+            }
+        }
+
+        @keyframes transform {
+            from {
+                transform: translateY(0);
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+                -webkit-transform: translateY(-10px);
+                -moz-transform: translateY(-10px);
+                -ms-transform: translateY(-10px);
+            }
+        }
+
+        @-webkit-keyframes shadow {
+            from {
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+            }
+            to {
+                box-shadow: 0 0 0 10px transparent;
+            }
+        }
+
+        @keyframes shadow {
+            from {
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+            }
+            to {
+                box-shadow: 0 0 0 10px transparent;
+            }
+        }
+
 
     </style>
     <template>
-        <div class="col-lg-3">
-            <img class="media-object" src="http://placehold.it/200x200" alt="...">
+        <div class="contentBox">
+            <div class="media">
+                <div class="media-left">
+                    <a><img class="media-object border" src="http://placehold.it/100x100" alt="..."></a>
+                </div>
+                <div class="media-body text-">
+                    <h5 class="media-heading authorName">James Kwon</h5>
+                    <p class="authorPosition"> Software Engineering Developer</p>
+                    <blockquote class="bq1" cite="http://www.hongkiat.com/blog/css-editors-reviewed/">
+                        <p>Every glorious revolution has its dark side, as for CSS is every web browser like IE7 does not support the same effect defined by css, so otfen designer has to squeeze their mind to figure out a trick, hack or fix, that's when CSS Editor comes in to help.</p>
+                    </blockquote>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-8">
-            <h5 class="media-heading authorName">James Kwon</h5>
-
-            <p class="authorPosition"> Software Engineering Developer</p>
-
-            <blockquote class="authorDescription">
-                I'm a youtuber/journalist/filmmaker and most importantly a positive thinker. I
-                love making videos, taking photos and editing it all.
-                I may be a diva fashionista, but deep in my heart I'm the biggest nerd. I love elephants and reading!
-            </blockquote>
-            <br>
-            <i class="fa fa-facebook fa-large blue"><a href="#"> Facebook</a></i>
-            <i class="fa fa-google-plus fa-large red"><a class="red" href="#"> Google Plus </a></i>
-            <i class="fa fa-linkedin fa-large"> LinkedIn</i>
-            <i class="fa fa-github fa-large"> Github</i>
-            <i class="fa fa-download"> Resume</i>
+        <div class="social pull-right">
+            <ul>
+                <li class="facebook"></li>
+                <li class="twitter"></li>
+                <a href="https://ca.linkedin.com/in/jonathankrista">
+                    <li class="fa-linkedin"></li>
+                </a>
+                <a href="https://github.com/Jonathankrista">
+                    <li class="fa-github"></li>
+                </a>
+            </ul>
         </div>
     </template>
 </dom-module>
