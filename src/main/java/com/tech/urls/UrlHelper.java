@@ -35,7 +35,11 @@ public final class UrlHelper {
         return UrlUtils.setParameter("/" + SEARCH_URL_PATH + "/" + PREFIX_PAGE + pageNum + "/", "searchText",  searchText);
     }
 
+    public String getAboutUrlPath() {
+        return getAbsolutePath(ABOUT_URL_PATH);
+    }
+
     public String getAuthorUrl(int authorId) {
-        return "/" + AUTHOR_PROFILE_URL_PATH + "/" + authorId;
+        return getAbsolutePath(AUTHOR_PROFILE_URL_PATH + "/" + authorId);
     }
 }

@@ -19,7 +19,7 @@
                     <a class="nav-link page-scroll" href="#">Tutorials</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#">About Us</a>
+                    <a class="nav-link page-scroll" href="${urlHelper.getAboutUrlPath()}">About Us</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav pull-right">
@@ -82,24 +82,49 @@
                 </c:choose>
             </c:forEach>
         </div>
+
         <div class="col-lg-offset-1 col-lg-4">
             <div class="row">
-                <blog-author author-display-name="${blogAuthor.displayName}" category-color="${blogCategory.color}"
-                             author-link="${urlHelper.getAuthorUrl(blogAuthor.id)}"></blog-author>
+                <div class="section" style="background-color: ${blogCategory.color}">
+                    <div class="section-inner">
+                        <h2 class="heading">Author Description</h2>
+                        <div class="underLine">&nbsp;</div>
+                    </div>
+
+                    <div class="content" style="border-color: ${blogCategory.color}">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="${urlHelper.getAuthorUrl(blogAuthor.id)}">
+                                    <img class="media-object border"
+                                         src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTEyYzA1ZDUzOCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MTJjMDVkNTM4Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+                                         alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <a href="${urlHelper.getAuthorUrl(blogAuthor.id)}" ><h5 class="media-heading authorName" style="color: ${blogCategory.color}">${blogAuthor.displayName}</h5></a>
+                                <p class="authorPosition"> Software Engineering Developer</p>
+                                <p class="authorDescription">I'm a youtuber/journalist/filmmaker and most importantly a positive
+                                    thinker. I love making videos, taking photos and editing it all.
+                                    I may be a diva fashionista, but deep in my heart I'm the biggest nerd. I love elephants and
+                                    reading! </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="row">
                 <div class="section" style="background-color: ${blogCategory.color}">
                     <div class="section-inner">
                         <h2 class="heading">Related Blog Posts</h2>
                         <div class="underLine">&nbsp;</div>
                     </div>
-                    <div id="rss-feeds" class="content">
+                    <div class="content" style="border-color: ${blogCategory.color}">
                         <c:forEach var="blog" items="${relatedBlogs}" varStatus="loop">
                             <blog-related-item blog-id="${blog.id}" blog-title="${blog.title}" blog-description="${blog.description}"></blog-related-item>
                         </c:forEach>
                     </div>
                 </div>
-
             </div>
         </div>
 

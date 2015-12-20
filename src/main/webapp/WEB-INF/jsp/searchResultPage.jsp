@@ -19,7 +19,7 @@
                     <a class="nav-link page-scroll" href="#">Tutorials</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#">About Us</a>
+                    <a class="nav-link page-scroll" href="${urlHelper.getAboutUrlPath()}" >About Us</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav pull-right">

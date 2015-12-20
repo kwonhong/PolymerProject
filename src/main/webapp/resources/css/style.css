@@ -7,22 +7,23 @@
 .blog {
     background-color: #007FFF;
 }
+
 .section {
-    /*margin-bottom: 30px;*/
+    margin-top: 10px;
+    box-shadow: 5px 5px 2px #888888;
 }
 .section .section-inner {
-    padding: 30px;
+    padding: 20px 30px;
 }
 .section .heading {
-    margin-top: 0;
     color: #fff;
     font-size: 16px;
 }
 
 .content {
-    padding-bottom: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 30px;
+    background-color: white;
+    border-bottom: 20px solid #007fff;
 }
 
 .pagination {
@@ -113,5 +114,35 @@
 
     /* Support for IE. */
     font-feature-settings: 'liga';
+}
+
+.authorName {
+    font-family: RobotoBold;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 2px;
+}
+
+.authorDescription {
+    font-family: RobotoRegular;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.authorPosition {
+    font-family: RobotoRegular;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.border {
+    width: 72px;
+    height: 72px;
+    border-radius: 49px;
+    border-color: #fff;
+    margin: auto auto;
 }
 
