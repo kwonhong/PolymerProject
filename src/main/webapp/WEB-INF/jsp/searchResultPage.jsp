@@ -16,7 +16,7 @@
         <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
             <ul class="nav navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#">Tutorials</a>
+                    <a class="nav-link page-scroll" href="${urlHelper.getSearchPageUrlPath()}">Tutorials</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="${urlHelper.getAboutUrlPath()}" >About Us</a>
@@ -109,22 +109,22 @@
     <nav>
         <div class="col-lg-8 pagination">
             <ul>
-                <li class="previous"><a href="${urlHelper.getSearchUrlWithPagination(pageNum-1, searchText)}">&lt;</a>
+                <li class="previous"><a href="${urlHelper.getSearchResultUrlWithPagination(pageNum-1, searchText)}">&lt;</a>
                 </li>
                 <c:forEach var="pageNum" items="${paginationNums}">
                     <c:choose>
                         <c:when test="${pageNum eq activePageNum}">
                             <li class="active"><a
-                                    href="${urlHelper.getSearchUrlWithPagination(pageNum, searchText)}">${activePageNum}</a>
+                                    href="${urlHelper.getSearchResultUrlWithPagination(pageNum, searchText)}">${activePageNum}</a>
                             </li>
                         </c:when>
                         <c:otherwise>
-                            <li><a href="${urlHelper.getSearchUrlWithPagination(pageNum, searchText)}">${pageNum}</a>
+                            <li><a href="${urlHelper.getSearchResultUrlWithPagination(pageNum, searchText)}">${pageNum}</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
-                <li class="next"><a href="${urlHelper.getSearchUrlWithPagination(pageNum + 1, searchText)}">&gt;</a>
+                <li class="next"><a href="${urlHelper.getSearchResultUrlWithPagination(pageNum + 1, searchText)}">&gt;</a>
                 </li>
             </ul>
         </div>

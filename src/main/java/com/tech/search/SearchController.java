@@ -78,8 +78,7 @@ public class SearchController {
     @RequestMapping(value = RequestMappingDefinitions.SEARCH_PAGE_URL_PATH, method = RequestMethod.GET)
     public String defaultSearchPage(ModelMap modelMap) {
 
-        List<Blog> recentBlogs = blogService.findAllBlog();
-        modelMap.addAttribute("blogs", recentBlogs);
+        modelMap.addAttribute("urlHelper", urlHelper);
         return RequestMappingDefinitions.SEARCH_PAGE_URL_PATH;
     }
 

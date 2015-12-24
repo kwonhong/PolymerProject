@@ -19,10 +19,6 @@ public final class UrlHelper {
         return BLOG_URL_PATH;
     }
 
-    public String getSearchUrlPath() {
-        return SEARCH_URL_PATH;
-    }
-
     public String getSearchPageUrlPath() {
         return SEARCH_PAGE_URL_PATH;
     }
@@ -31,15 +27,14 @@ public final class UrlHelper {
         return INDEX_URL_PATH;
     }
 
-    public String getSearchUrlWithPagination(int pageNum, String searchText) {
+    public String getSearchResultUrlWithPagination(int pageNum, String searchText) {
         return UrlUtils.setParameter("/" + SEARCH_URL_PATH + "/" + PREFIX_PAGE + pageNum + "/", "searchText",  searchText);
     }
 
     public String getAboutUrlPath() {
         return getAbsolutePath(ABOUT_URL_PATH);
     }
-
-    public String getAuthorUrl(int authorId) {
+    public String getAuthorUrlPath(int authorId) {
         return getAbsolutePath(AUTHOR_PROFILE_URL_PATH + "/" + authorId);
     }
 }
